@@ -14,32 +14,50 @@ Output (Saída de Dados)
 O sistema informará o usuário se o mesmo acertou ou não, podendo incluir dicas sobre a proximidade do "chute"
 */
 
-// 1. Nosso Jogo deve Aceitar o input do Jogador e Exibir o Valor Digitado. - OK
-// 2. Nosso Jogo deve Gerar um Número Secreto Aleatório. - OK
-// 3. Nosso Jogo deve Comparar o Número Digitado com o Número Secreto e Exibir Uma Mensagem de Feedback. - 
-Console.WriteLine("----------------------------------------------");
-Console.WriteLine("Jogo de Adivinhação");
-Console.WriteLine("----------------------------------------------");
-
-Console.WriteLine();
-Console.Write("Digite um Número: ");
-string strNumeroDigitado = Console.ReadLine();
-int numeroDigitado = Convert.ToInt32(strNumeroDigitado);
+// 1. Nosso Jogo Deve Aceitar o input do Jogador e Exibir o Valor Digitado. - OK
+// 2. Nosso Jogo Deve Gerar um Número Secreto Aleatório. - OK
+// 3. Nosso Jogo Deve Comparar o Número Digitado com o Número Secreto e Exibir Uma Mensagem de Feedback. - OK
+// 4. Nosso Jogo Deve Permitir Multiplas Tentativas Para o Jogador Adivinhar o Número Secreto. - OK
 
 // 1 - 20 (numero Mínimo, numero Máximo (exclusivo))
 int numeroAleatorio = RandomNumberGenerator.GetInt32(1, 21);
+bool jogoDeveContinuar = true;
 
-if (numeroAleatorio == numeroDigitado)
+while (jogoDeveContinuar)
 {
-    Console.WriteLine("Parabéns, Você Acertou! O Número Secreto era: " + numeroAleatorio);
-}
-else if (numeroDigitado > numeroAleatorio)
-{
-    Console.WriteLine("Dica: O número digitado é maior do que o número secreto.");
-}
-else
-{
-    Console.WriteLine("Dica: O número digitado é menor do que o número secreto.");
-}
+    Console.Clear();
+    Console.WriteLine("----------------------------------------------");
+    Console.WriteLine("Jogo de Adivinhação");
+    Console.WriteLine("----------------------------------------------");
 
-Console.ReadLine();
+    Console.WriteLine();
+    Console.Write("Digite um Número: ");
+    string strNumeroDigitado = Console.ReadLine();
+    int numeroDigitado = Convert.ToInt32(strNumeroDigitado);
+
+    if (numeroAleatorio == numeroDigitado)
+    {
+        Console.WriteLine("Parabéns, Você Acertou! O Número Secreto era: " + numeroAleatorio);
+    }
+    else if (numeroDigitado > numeroAleatorio)
+    {
+        Console.WriteLine("Dica: O Número Digitado é Maior do que o Número Secreto.");
+    }
+    else
+    {
+        Console.WriteLine("Dica: O Número Digitado é Menor do que o Número Secreto.");
+    }
+
+    Console.WriteLine();
+    Console.WriteLine("Deseja Jogar Novamente? (S/N)");
+
+    string resposta = Console.ReadLine();
+
+    if (resposta != "S" && resposta != "s")
+    {
+        jogoDeveContinuar = false;
+        Console.WriteLine("Obrigado por Jogar! Até a Próxima!");
+        Console.WriteLine("----------------------------------------------");
+        Console.ReadLine();
+    }
+}
