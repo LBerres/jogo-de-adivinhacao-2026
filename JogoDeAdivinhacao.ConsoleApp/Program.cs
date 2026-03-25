@@ -1,17 +1,7 @@
 ﻿using System.Security.Cryptography;
 
 /*
-v1
-
-Iremos fazer um jogo onde o usuário terá chances de acertar um número aleatório decidido pelo sistema.
-
-Input (Entrada de Dados)O usuário digita número inteiro
-
-Processamento
-O sistema compara o número digitado com um número inteiro aleatório
-
-Output (Saída de Dados)
-O sistema informará o usuário se o mesmo acertou ou não, podendo incluir dicas sobre a proximidade do "chute"
+v1 - OK
 
 v2
 
